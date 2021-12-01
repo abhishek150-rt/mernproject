@@ -51,8 +51,16 @@ app.post("/register", async (req, res) => {
             });
 
             // Middlewear for generating json we token
-            const newToken= await result.generateToken();
+            const newToken = await result.generateToken();
             console.log(newToken);
+
+            // Cookie generation
+            res.cookie("registrationCookie", newToken, {
+                expires: new Date(Date.now() + 30000),
+                httpOnly: true
+            });
+
+
 
             const response = await result.save();
             res.render("index", {
@@ -75,8 +83,17 @@ app.post("/login", async (req, res) => {
         const ismatching = await bcrypt.compare(password, response.password)
 
         // Creating token for login
-        const token= await response.generateToken();
+        const token = await response.generateToken();
         console.log(token);
+
+
+        // Cookie generation
+        res.cookie("loginCookie", token, {
+            expires: new Date(Date.now() + 90000),
+            httpOnly: true
+        });
+
+
         if (ismatching) {
             res.render("index", {
                 isTrue: true,
