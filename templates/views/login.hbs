@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>header}}
+
+<body>
+  {{>navbar}}
+  <div class="container">
+
+    {{#if isFalse}}
+    <div class="alert alert-danger alert-dismissible fade show w-50 mx-auto mt-4 text-center p-0" role="alert">
+      {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+    <form class="modal-content" action="/login" method="POST">
+      <div class="imgcontainer">
+        <img src="images/logo.png" alt="Avatar" class="avatar">
+      </div>
+      <div>
+        <label for="email"><b>Email</b></label>
+        <input type="email" name="email" id="email" required autocomplete="off">
+
+        <label for="myPassword"><b>Password</b></label>
+        <input type="password" name="password" required id="myPassword">
+        <label>
+          <input type="checkbox" class="my-3" name="show" onclick="passwordFunction()"> Show Password
+        </label>
+        <button type="submit" class="d-block w-100 btn btn-danger">Login</button>
+      </div>
+
+      <div>
+
+        <p class="psw">Don't have an account yet?<a href="/register"> <br>Register Now</a></p>
+      </div>
+    </form>
+  </div>
+  {{>footer}}
+  <script src="js/index.js"></script>
+</body>
+
+</html>

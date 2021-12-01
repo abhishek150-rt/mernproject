@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>header}}
+
+<body>
+    {{>navbar}}
+    <div class="container col-xxl-8">
+        <div class="row flex-lg-row-reverse align-items-center">
+            <div class="col-lg-6">
+                <img src="/images/Joker.png" class="d-block mx-lg-auto img-fluid" width="700" height="500"
+                    alt="Bootstrap Themes" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class=" fw-bold lh-1 mb-3">{{name}}</h1>
+                <p class="lead">MERN stack is a web development framework. It consists of <span class="text-muted">MongoDB, ExpressJS, ReactJS, and NodeJS</span> as its working components. Here are the details of what each of these components is used for in developing a web application when using MERN stack:</p>
+                <ul>
+                    <li>MongoDB</li>
+                    <li>ExpreeJS</li>
+                    <li>ReactJS</li>
+                    <li>NodeJS</li>
+                </ul>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 m-2">Read More</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4 m-2">Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+ {{#if isAdded}}
+<script>
+Swal.fire({
+  icon: 'success',
+  title: 'Success',
+  text: `your data is saved.`,
+  footer: '<a href="/login">Login now</a>'
+})
+</script>
+ {{/if}} 
+ {{#if isTrue}}
+<script>
+Swal.fire({
+  icon: 'success',
+  title: 'Success',
+  text: `You have successfully logged in.`,
+})
+</script>
+ {{/if}}
+</body>
+
+</html>
