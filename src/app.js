@@ -55,7 +55,7 @@ app.post("/register", async (req, res) => {
             console.log(newToken);
 
             // Cookie generation
-            res.cookie("registrationCookie", newToken, {
+            res.cookie(process.env.REGISTRATION_COOKIE, newToken, {
                 expires: new Date(Date.now() + 30000),
                 httpOnly: true
             });
@@ -88,7 +88,7 @@ app.post("/login", async (req, res) => {
 
 
         // Cookie generation
-        res.cookie("loginCookie", token, {
+        res.cookie(process.env.LOGIN_COOKIE, token, {
             expires: new Date(Date.now() + 90000),
             httpOnly: true
         });
