@@ -67,7 +67,12 @@ app.post("/register", async (req, res) => {
                 isAdded: true,
             });
         }
-        else res.send("password not matching");
+        else {
+            res.render("register", {
+                isFalse: true,
+                message: "Please fill correct details."
+            });
+        }
     }
     catch (err) {
         res.status(404).send(err);
@@ -110,7 +115,10 @@ app.post("/login", async (req, res) => {
 
     }
     catch (err) {
-        res.status(400).send("Invalid Login Details");
+        res.status(400).render("login", {
+            isFalse: true,
+            message: "Incorrect username or password."
+        });
     }
 })
 

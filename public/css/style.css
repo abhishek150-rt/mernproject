@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Piazzolla:wght@200;300;400;500;900&family=Poppins:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800;900&display=swap');
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
 li{
     margin: 0 10px;
@@ -37,7 +39,10 @@ footer {
     width: 30%;
     padding:10px 20px;
 }
-
+.nav-link{
+    font-size: 18px;
+    font-family: 'Mulish', sans-serif;
+}
 
 
 .imgcontainer {
@@ -64,7 +69,10 @@ input[type="email"], input[type="password"], input[type="text"] {
     /* margin: 5px 1px 3px 0px; */
     border: 1px solid #dddddd;
 }
-
+.alert{
+    width: 50%;
+    margin: auto;
+}
 p.psw {
     text-align: center;
     padding-top: 16px;
@@ -73,6 +81,10 @@ p.psw {
     
     .modal-content{
         width: 50%;
+    }
+    .alert{
+        width: 60%;
+        margin: auto;
     }
 }
 @media screen and (max-width:800px){
@@ -88,10 +100,16 @@ p.psw {
     .modal-content{
         width: 80%;
     }
+    .alert{
+        width: auto;
+    }
 }
 @media screen and (max-width:600px){
     
     .modal-content{
         width:auto;
+    }
+    .alert{
+        width: auto;
     }
 }

@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 {{>header}}
+
 <body>
     {{>navbar}}
+    {{#if isFalse}}
+    <div class="alert alert-danger alert-dismissible fade show mt-4 text-center" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
     <div class=" register-form-container my-5 needs-validation">
+
         <h1 class="text-center mb-5"><u>Registration Form</u></h1>
         <form class="row" action="/register" method="POST">
             <div class="col-lg-6">
                 <div class="mb-3">
                     <label for="firstname" class="form-label">First Name</label>
-                    <input type="text" class="form-control had-invalid" id="firstname" name="firstname" 
+                    <input type="text" class="form-control had-invalid" id="firstname" name="firstname"
                         autocomplete="off" required>
-                        <div  class="invalid-feedback">
-        Please choose a username.
-      </div>
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="mb-3">
                     <label for="lastname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname" 
-                        autocomplete="off" required>
+                    <input type="text" class="form-control" id="lastname" name="lastname" autocomplete="off" required>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -52,8 +59,8 @@
             <div class="col-lg-6">
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" 
-                        autocomplete="off" required>
+                    <input type="password" class="form-control" id="password" name="password" autocomplete="off"
+                        required>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -68,4 +75,5 @@
     </div>
     {{>footer}}
 </body>
+
 </html>
