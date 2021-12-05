@@ -1,31 +1,9 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const path = require("path");
-const port = process.env.PORT || 3000;
-const bcrypt = require("bcrypt")
-const Swal = require("sweetalert2");
-require("./db/database");
+const express= require("express");
+const router = new express.Router();
 const Student = require("./models/user");
-const authorization = require("./middleware/authorization");
-const cookieParser = require("cookie-parser");
-app.use(cookieParser());
-const jwt = require("jsonwebtoken");
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-/* Serve static files */
-app.use(express.static(path.join(__dirname, "../public")));
-
-/* serve views */
-const hbs = require("hbs");
-app.set("views", path.join(__dirname, "../templates/views"));
-app.set("view engine", "hbs");
-hbs.registerPartials(path.join(__dirname, "../templates/partials"));
 
 /* Routing*/
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
     res.render("index", {
         course: [
             "MONGO.DB",
@@ -35,26 +13,26 @@ app.get("/", (req, res) => {
         ]
     });
 });
-app.get("/login", (req, res) => {
+router.get("/login", (req, res) => {
     res.render("login");
 });
-app.get("/register", (req, res) => {
+router.get("/register", (req, res) => {
     res.render("register");
 });
-app.get("/user", (req, res) => {
+router.get("/user", (req, res) => {
     res.render("user", {
         notLogged: true,
         message: "Please Login To get Your Data"
     });
 });
 
-app.get("/secret",authorization, (req, res) => {
+router.get("/secret",authorization, (req, res) => {
     res.render("secret");
 })
 
 
 //For Registration
-app.post("/register", async (req, res) => {
+router.post("/register", async (req, res) => {
     try {
         const password = req.body.password;
         const confirmPassword = req.body.confirmpassword;
@@ -101,15 +79,12 @@ app.post("/register", async (req, res) => {
         }
     }
     catch (err) {
-        res.render("register", {
-            isFalse: true,
-            message: "Please fill correct details."
-        });
+        res.status(404).send(err);
     }
 });
 
 //For Login
-app.post("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -155,6 +130,5 @@ app.post("/login", async (req, res) => {
     }
 })
 
-app.listen(port, () => {
-    console.log(`Your App is running http://localhost:${port}`);
-})
+
+module.exports=router;

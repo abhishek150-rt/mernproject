@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>header}}
+{{>navbar}}
+{{#if notLogged}}
+<div class="alert alert-warning alert-dismissible fade show  mt-4 text-center" role="alert">
+     {{message}}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+{{#if isTrue}}
+<div class="user-info text-center">
+     <p class="my-2 px-5 lh-lg  fs-5  text-center">Name: {{name}}</p>
+     <p class="my-2 px-5 lh-lg  fs-5  text-center">Email: {{email}}</p>
+     <p class="my-2 px-5 lh-lg  fs-5  text-center"> Phone Number: {{phone}}</p>
+      <p class="my-2 px-5 lh-lg  fs-5  text-center">Age: {{age}}</p>
+</div>
+{{/if}}
+{{>footer}}
+
+<body>
+
+</body>
+
+</html>

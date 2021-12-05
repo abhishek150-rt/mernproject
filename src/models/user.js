@@ -76,10 +76,10 @@ const studentSchema = new mongoose.Schema({
 //Function for generating json web token for registartion
 studentSchema.methods.generateToken = async function () {
     try {
-        const newToken = await jwt.sign({ _id: this._id.toString()}, process.env.SECRET_KEY);
-        this.tokens= this.tokens.concat({token:newToken});
+        const registartionToken = await jwt.sign({ _id: this._id.toString()}, process.env.SECRET_KEY);
+        this.tokens= this.tokens.concat({token:registartionToken});
         await this.save();
-        return newToken;
+        return registartionToken;
     }
     catch (err) {
         console.log(err)

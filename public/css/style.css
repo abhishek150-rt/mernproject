@@ -10,6 +10,7 @@
 li{
     margin: 0 10px;
 }
+
 body {
     height:100vh;
     min-height: 100vh;
@@ -34,10 +35,10 @@ footer {
 }
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto 5% auto;
+    margin: 5% auto 2% auto;
     border: 1px solid #888;
     width: 30%;
-    padding:10px 20px;
+    padding:5px 20px;
 }
 .nav-link{
     font-size: 18px;
@@ -51,10 +52,30 @@ footer {
 .nav-link:hover{
     color:#0d6efd!important;
 }
-
+figure img {
+    filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.3));
+    animation: anime 15s infinite ease-in;
+}
+@keyframes anime{
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: scale(1.2);
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
 .imgcontainer {
     text-align: center;
-    margin: 12px 0 12px 0;
+    /* margin: 12px 0 12px 0; */
     position: relative;
 }
 img.avatar {
@@ -68,7 +89,7 @@ img.avatar {
 input[type="email"], input[type="password"], input[type="text"] {
     width: 100%;
     padding: 5px 10px;
-    margin: 10px 0;
+    margin: 5px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -93,6 +114,14 @@ p.psw {
         width: 60%;
         margin: auto;
     }
+    .paragraph{
+        padding: 10px!important;
+        
+    }
+    #about{
+        padding: 10px!important;
+      
+    }
 }
 @media screen and (max-width:800px){
     .form-container{
@@ -110,6 +139,10 @@ p.psw {
     .alert{
         width: auto;
     }
+    .paragraph{
+        padding: 5px!important;
+      
+    }
 }
 @media screen and (max-width:600px){
     
@@ -119,4 +152,30 @@ p.psw {
     .alert{
         width: auto;
     }
+    .paragraph{
+        padding: 0px!important;
+       
+    }
+}
+
+
+
+.user-info{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+#info{
+    display: flex!important;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column!important;
+}
+.form-control{
+    padding: 0px !important;
+    border: 1px solid #dddddd !important;
 }

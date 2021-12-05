@@ -1,13 +1,7 @@
-<div class="container shadow-lg p-5 mb-5 bg-body rounded my-5">
+<div class="container shadow-lg p-5 mb-5 bg-body rounded my-5" id="info">
     <h1 class="fs-1 fw-bold lh-2 text-center   my-5" style="color: #07214d;"><u>Technologies Under <br> MERN Stack
             Development</u></h1>
-    <p class="my2  px-5 lh-lg fs-3 text-center">
-        MongoDB
-    </p>
-    <p class="my-2 px-5 lh-lg  fs-3 text-center">EXPRESS.JS
-    </p>
-    <p class="my2  px-5 lh-lg fs-3 text-center">REACT.JS
-    </p>
-    <p class="my2  px-5 lh-lg fs-3 text-center">NODE.JS</p>
-
+    {{#each course}}
+    <p class="my-2 px-5 lh-lg  fs-3 text-center">{{this}}</p>
+    {{/each}}
 </div>
