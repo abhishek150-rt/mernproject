@@ -101,10 +101,7 @@ app.post("/register", async (req, res) => {
         }
     }
     catch (err) {
-        res.render("register", {
-            isFalse: true,
-            message: "Please fill correct details."
-        });
+       res.send(err);
     }
 });
 
